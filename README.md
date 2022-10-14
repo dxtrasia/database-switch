@@ -21,7 +21,7 @@ composer require dxtrasia/database-switch
  *
  * This configuration will replace the connection configuration On The Fly
  *
- * @see \App\Http\Middleware\DatabaseManagerMiddleware
+ * @see \Dxtrasia\DatabaseSwitch\DatabaseSwitchMiddleware
  */
 'country' => [
     'ID' => [ // country code
