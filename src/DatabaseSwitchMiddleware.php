@@ -30,7 +30,7 @@ class DatabaseSwitchMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle(Request $request, Closure $next)
+    public function Handle(Request $request, Closure $next)
     {
         if ($this->shouldBeReconfiguration($request)) {
             $this->newConfiguration();
@@ -47,7 +47,7 @@ class DatabaseSwitchMiddleware
      */
     protected function shouldBeReconfiguration(Request $request): bool
     {
-        $this->country = $request->header('Request-Country', 'ID');
+        $this->country = $request->header('Request-Country','ID');
 
         return ($this->country != 'ID') && $this->countryHasConfiguration() ? true : false;
     }
@@ -59,7 +59,7 @@ class DatabaseSwitchMiddleware
      */
     protected function countryHasConfiguration(): bool
     {
-        $countryConfigurations = Config::get('database.country');
+        $countryConfigurations = Config::get('database.country');;
 
         if (!is_null($countryConfigurations) && key_exists($this->country, $countryConfigurations)) {
             $this->configurations = $countryConfigurations[$this->country];
@@ -79,7 +79,7 @@ class DatabaseSwitchMiddleware
     {
         foreach ($this->configurations as $connection => $connectionConfig) {
             Config::set("database.connections.{$connection}", $connectionConfig);
-            DB::purge($connection);
+        DB::purge($connection);
         }
     }
 }
