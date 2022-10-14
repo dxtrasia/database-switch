@@ -1,0 +1,28 @@
+{
+    "name": "dxtrasia/database-switch",
+    "description": "Laravel library to switching database connection using middleware",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Dxtrasia\\DatabaseSwitch\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+          "Dxtrasia\\DatabaseSwitch\\Tests\\": "tests"
+        }
+    },
+    "authors": [
+        {
+            "name": "arispati",
+            "email": "masarispati@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.1",
+        "illuminate/http": ">5.6",
+        "illuminate/support": ">5.6"
+    }
+}
